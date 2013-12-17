@@ -1,0 +1,46 @@
+ <?php
+ // module/Album/view/album/album/edit.phtml:
+
+ $title = 'Edit album';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+
+ <?php
+//  $form = $this->form;
+//  $form->setAttribute('action', $this->url(
+//      'album',
+//      array(
+//          'action' => 'edit',
+//          'id'     => $this->id,
+//      )
+//  ));
+//  $form->prepare();
+
+//  echo $this->form()->openTag($form);
+//  echo $this->formHidden($form->get('id'));
+//  echo $this->formRow($form->get('title'));
+//  echo $this->formRow($form->get('artist'));
+//  echo $this->formSubmit($form->get('submit'));
+//  echo $this->form()->closeTag();
+ ?>
+<form role="form" action="<?php echo $this->url('album',array('action'=>'edit'))?>" method="post">
+<div class="col-md-6">
+<div class="form-group">
+	<label for="title">Title</label>
+	<input type="title" class="form-control" id="title" palceholder="enter title" name="title" value="<?php echo $row->title;?>">
+</div>
+</div>
+<input type="hidden" value="<?php echo $row->id;?>" name="id">
+<div class="col-md-6">
+<div class="form-group">
+	<label for="artist">artist</label>
+	<input type="text" class="form-control" id="artist" palceholder="enter artist"  name="artist" value="<?php echo $row->artist;?>">
+</div>
+</div>
+
+<div class="form-group">
+<button type="submit" class="btn btn-default">Submit</button>
+</div>
+
+</form>
